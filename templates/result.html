@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados del Análisis</title>
+</head>
+<body>
+    <h1>Resultados del Análisis</h1>
+    {% for result in results %}
+        <div>
+            <img src="{{ result.image }}" alt="Imagen" width="300">
+            <h3>Etiquetas más probables:</h3>
+            <ul>
+                {% for tag in result.tags %}
+                    <li>{{ tag['tag'] }} (Confianza: {{ tag['confidence'] }}%)</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+</body>
+</html>
